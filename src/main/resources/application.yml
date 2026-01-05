@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: fintech-backend
+
+  r2dbc:
+    url: r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.sofka: DEBUG
+    org.springframework.r2dbc: DEBUG
