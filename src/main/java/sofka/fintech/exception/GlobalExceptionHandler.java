@@ -16,9 +16,6 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    /**
-     * Maneja errores de validación
-     */
     @ExceptionHandler(WebExchangeBindException.class)
     public ResponseEntity<ErrorResponse> handleValidationErrors(
             WebExchangeBindException ex,
@@ -44,9 +41,6 @@ public class GlobalExceptionHandler {
                 .body(errorResponse);
     }
 
-    /**
-     * Maneja IllegalArgumentException
-     */
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponse> handleIllegalArgument(
             IllegalArgumentException ex,
@@ -66,9 +60,6 @@ public class GlobalExceptionHandler {
                 .body(errorResponse);
     }
 
-    /**
-     * Maneja RuntimeException (como transacción no encontrada)
-     */
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorResponse> handleRuntimeException(
             RuntimeException ex,
@@ -88,9 +79,6 @@ public class GlobalExceptionHandler {
                 .body(errorResponse);
     }
 
-    /**
-     * Maneja cualquier otra excepción no controlada
-     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneralException(
             Exception ex,

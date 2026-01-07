@@ -25,10 +25,8 @@ public class TransactionService {
         log.info("Creando transacción para monto: {}", request.getMonto());
 
         return Mono.fromSupplier(() -> {
-                    // Calcular comisión
                     BigDecimal comision = commissionService.calculateCommission(request.getMonto());
 
-                    // Crear entidad
                     Transaction transaction = Transaction.builder()
                             .monto(request.getMonto())
                             .comision(comision)
